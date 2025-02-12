@@ -1,0 +1,43 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: crud_motocicletes
+      MYSQL_USER: usuari
+      MYSQL_PASSWORD: usuari_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: node_app
+    restart: always
+    environment:
+      PORT: 3000
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: crud_motocicletes
+      MYSQL_USER: usuari
+      MYSQL_PASSWORD: usuari_password
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:
