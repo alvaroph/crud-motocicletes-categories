@@ -3,11 +3,10 @@ services:
     image: mysql:8.0
     container_name: mysql
     restart: always
+    env_file:
+      - .env  # <-- Carga todas las variables desde .env
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: crud_motocicletes
-      MYSQL_USER: usuari
-      MYSQL_PASSWORD: usuari_password
     ports:
       - "3306:3306"
     volumes:
@@ -17,12 +16,8 @@ services:
     build: .
     container_name: node_app
     restart: always
-    environment:
-      PORT: 3000
-      MYSQL_HOST: mysql
-      MYSQL_DATABASE: crud_motocicletes
-      MYSQL_USER: usuari
-      MYSQL_PASSWORD: usuari_password
+    env_file:
+      - .env  # <-- Carga todas las variables desde .env
     ports:
       - "3000:3000"
     depends_on:

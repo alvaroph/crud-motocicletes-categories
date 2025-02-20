@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Detalls de la Motocicleta</title>
-</head>
-<body>
+<%- include('../partials/header', { title: 'Bienvenido a Mi Aplicación' }) %>
+
+
   <h1>Detalls de la Motocicleta</h1>
   <p>
     <strong>ID:</strong> <%= motocicleta.id %>
@@ -22,5 +18,6 @@
     <strong>Potència:</strong> <%= motocicleta.potencia %>
   </p>
   <a href="/motocicletes">Tornar enrere</a>
-</body>
-</html>
+
+  <%- include('../partials/footer') %>
+

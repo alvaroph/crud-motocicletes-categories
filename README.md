@@ -109,7 +109,3 @@ Amb aquesta estructura:
 - S'utilitzen partials per centralitzar el header i footer amb Bootstrap, fent el codi més net i fàcil de mantenir.
 - El backend està modularitzat en routers separats, facilitant futures ampliacions.
 - El projecte utilitza Docker per garantir un entorn de desenvolupament consistent, amb Adminer per gestionar la base de dades i nodemon per a una experiència de desenvolupament ràpida.
-
-Esperem que aquesta organització et resulti clara i que el projecte sigui una excel·lent eina d'aprenentatge.  
-Si tens qualsevol dubte o necessites més ajustos, no dubtis a demanar-ho! 😊🚀
-
